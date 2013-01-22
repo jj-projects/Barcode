@@ -70,7 +70,7 @@ static ResultManager *sharedResultManager = nil;
 	return UINT_MAX;
 }
 
-- (void)release {
+- (oneway void)release {
 }
 
 - (id)autorelease {
@@ -146,8 +146,8 @@ static ResultManager *sharedResultManager = nil;
 		case 99:
 		{
 			// vCard
-			
-			ABAddressBookRef addressBook = ABAddressBookCreate();
+			CFErrorRef error;
+			ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &error);
 			
 			ABRecordRef group = ABGroupCreate();
 			ABRecordSetValue(group, kABGroupNameProperty, @"Barcode", NULL);
@@ -173,7 +173,7 @@ static ResultManager *sharedResultManager = nil;
 			UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:personViewController];
 			[personViewController release];
 			navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-			[((BarcodeAppDelegate *)[UIApplication sharedApplication].delegate).navigationController.visibleViewController presentModalViewController:navigationController animated:YES];
+			[((BarcodeAppDelegate *)[UIApplication sharedApplication].delegate).navigationController.visibleViewController presentViewController:navigationController animated:YES completion:Nil];
 			[navigationController release];
 			
 			// Release address book person.
@@ -201,7 +201,7 @@ static ResultManager *sharedResultManager = nil;
 #pragma mark ABNewPersonViewControllerDelegate
 
 - (void)newPersonViewController:(ABNewPersonViewController *)personViewController didCompleteWithNewPerson:(ABRecordRef)person {
-	[personViewController dismissModalViewControllerAnimated:YES];
+	[personViewController dismissViewControllerAnimated:YES completion:Nil];
 }
 
 @end

@@ -82,7 +82,7 @@
 	static NSString *MyIdentifier = @"MyIdentifier";
 	UITableViewCell *tableViewCell = [localTableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(tableViewCell == nil)
-		tableViewCell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		tableViewCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
 	
 	// Configure the table view cell.
 	switch(indexPath.section) {

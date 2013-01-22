@@ -66,7 +66,7 @@
 	// Initialize location manager.
 	CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 	locationManager.delegate = self;
-	if(locationManager.locationServicesEnabled)
+	if(YES == [CLLocationManager  locationServicesEnabled])
 		self.locationManager = locationManager;
 	[locationManager release];
 	

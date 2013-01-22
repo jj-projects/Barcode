@@ -34,11 +34,11 @@ namespace qrcode {
       ' ', '$', '%', '*', '+', '-', '.', '/', ':'
     };
 
-    char *DecodedBitStreamParser::ASCII = "ASCII";
-    char *DecodedBitStreamParser::ISO88591 = "ISO-8859-1";
-    char *DecodedBitStreamParser::UTF8 = "UTF-8";
-    char *DecodedBitStreamParser::SHIFT_JIS = "SHIFT_JIS";
-    char *DecodedBitStreamParser::EUC_JP = "EUC-JP";
+    const char *DecodedBitStreamParser::ASCII = "ASCII";
+    const char *DecodedBitStreamParser::ISO88591 = "ISO-8859-1";
+    const char *DecodedBitStreamParser::UTF8 = "UTF-8";
+    const char *DecodedBitStreamParser::SHIFT_JIS = "SHIFT_JIS";
+    const char *DecodedBitStreamParser::EUC_JP = "EUC-JP";
     
     void DecodedBitStreamParser::append(ostream &ost,
                                         unsigned char *bufIn, 
@@ -116,7 +116,7 @@ namespace qrcode {
       // upon decoding. I have seen ISO-8859-1 used as well as
       // Shift_JIS -- without anything like an ECI designator to
       // give a hint.
-      char *encoding = guessEncoding(readBytes, nBytes);
+      const  char *encoding = guessEncoding(readBytes, nBytes);
       append(result, readBytes, nBytes, encoding);
     }
     
@@ -182,7 +182,7 @@ namespace qrcode {
       append(result, bytes, nBytes, ASCII);
     }      
     
-    char * 
+    const char *
     DecodedBitStreamParser::guessEncoding(unsigned char *bytes, int length) {
       // Does it start with the UTF-8 byte order mark? then guess it's UTF-8
       if (length > 3 && bytes[0] == (unsigned char) 0xEF && 

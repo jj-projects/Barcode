@@ -146,12 +146,12 @@
 - (void)pickImageWithSourceType:(UIImagePickerControllerSourceType)sourceType {
 	// Create new image picker controller.
 	UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-	imagePickerController.allowsImageEditing = NO;
+	imagePickerController.allowsEditing = NO;
 	imagePickerController.delegate = self;
 	imagePickerController.sourceType = sourceType;
 	imagePickerController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 	// Show the image picker.
-	[self.navigationController presentModalViewController:imagePickerController animated:YES];
+	[self.navigationController presentViewController:imagePickerController animated:YES completion:Nil];
 }
 
 #pragma mark IBAction
@@ -255,7 +255,7 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)imagePickerController {
-	[self.navigationController dismissModalViewControllerAnimated:YES];
+	[self.navigationController dismissViewControllerAnimated:YES completion:Nil];
 	[imagePickerController release];
 }
 

@@ -47,4 +47,4 @@ namespace qrcode {
   }
 }
 
-#endif / __MODE_H__
+#endif // __MODE_H__

@@ -216,17 +216,11 @@ namespace qrcode {
       
       // Now count other way -- don't run off image though of course
       size_t otherToX = fromX - (toX - fromX);
-      if (otherToX < 0) {
-        // "to" should the be the first value not included, so, the first value off
-        // the edge is -1
-        otherToX = -1;
-      } else if (otherToX >= image_->getWidth()) {
+      if (otherToX >= image_->getWidth()) {
         otherToX = image_->getWidth();
       }
       size_t otherToY = fromY - (toY - fromY);
-      if (otherToY < 0) {
-        otherToY = -1;
-      } else if (otherToY >= image_->getHeight()) {
+      if (otherToY >= image_->getHeight()) {
         otherToY = image_->getHeight();
       }
       result += sizeOfBlackWhiteBlackRun(fromX, fromY, otherToX, otherToY);

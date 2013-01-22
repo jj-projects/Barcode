@@ -95,11 +95,11 @@
 	static NSString *MyIdentifier = @"MyIdentifier";
 	UITableViewCell *tableViewCell = [localTableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(tableViewCell == nil)
-		tableViewCell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		tableViewCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
 	
 	BarcodeAppDelegate *applicationDelegate = (BarcodeAppDelegate *)[UIApplication sharedApplication].delegate;
 	Result *result = [applicationDelegate.results objectAtIndex:indexPath.row];
-	tableViewCell.text = result.content;
+	tableViewCell.textLabel.text = result.content;
 	tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	return tableViewCell;

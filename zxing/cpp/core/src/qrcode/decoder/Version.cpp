@@ -72,7 +72,6 @@ namespace qrcode {
       if (versionNumber < 1 || versionNumber > 40) {
         throw new ReaderException("versionNumber must be between 1 and 40");
       }
-      N_VERSIONS;
       return VERSIONS[versionNumber - 1];
     }
     

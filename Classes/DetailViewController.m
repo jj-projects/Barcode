@@ -146,7 +146,7 @@
 	if(!self.isWebViewLoaded) {
 		
 		// Get maps source code.
-		NSString *string = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"googlemaps" ofType:@"html"]];
+		NSString *string = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"googlemaps" ofType:@"html"] encoding:NSUTF8StringEncoding error:nil];
 		
 		// Insert latitude and longitude.
 		string = [string stringByReplacingOccurrencesOfString:@"%LATITUDE%" withString:[NSString stringWithFormat:@"%f", (location == nil ? 37.4419 : latitude)]];
@@ -187,7 +187,7 @@
 		index++;
 	
 	// Replace current result object.
-	if(index >= 0 && index < applicationDelegate.results.count)
+	if( index < applicationDelegate.results.count)
 		self.result = [applicationDelegate.results objectAtIndex:index];
 	
 	// Update interface.

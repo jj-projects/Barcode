@@ -97,7 +97,7 @@ namespace common {
     }
     // Check and nudge points from end:
     nudged = true;
-    for (size_t offset = points.size() - 2; offset >= 0 && nudged; offset -= 2) {
+    for (size_t offset = points.size() - 2; nudged; offset -= 2) {
       int x = (int) points[offset];
       int y = (int) points[offset + 1];
       if (x < -1 || x > width || y < -1 || y > height) {

@@ -71,9 +71,10 @@ namespace common {
                             size_t leftJ, 
                             size_t height, 
                             size_t width) {
-    if (topI < 0 || leftJ < 0) {
-      throw new IllegalArgumentException("topI and leftJ must be nonnegative");
-    }
+// TODO: JJR - do we need signed values here ?
+ //   if (topI < 0 || leftJ < 0) {
+ //     throw new IllegalArgumentException("topI and leftJ must be nonnegative");
+ //   }
     if (height < 1 || width < 1) {
       throw new IllegalArgumentException("height and width must be at least 1");
     }

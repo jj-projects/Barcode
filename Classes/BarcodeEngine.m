@@ -10,6 +10,7 @@
 
 #import "DataMatrixEngine.h"
 #import "QRCodeEngine.h"
+#import "UPCEngine.h"
 
 @interface BarcodeEngine ()
 #pragma mark Private
@@ -33,6 +34,9 @@
 			break;
 		case BarcodeTypeQRCode:
 			return [[[QRCodeEngine alloc] init] autorelease];
+			break;
+		case BarcodeTypeUPC:
+			return [[[UPCEngine alloc] init] autorelease];
 			break;
 	}
 	return nil;

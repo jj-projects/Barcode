@@ -10,7 +10,8 @@
 
 typedef enum {
 	BarcodeTypeDataMatrix,
-	BarcodeTypeQRCode
+	BarcodeTypeQRCode,
+   BarcodeTypeUPC
 } BarcodeType;
 
 @protocol BarcodeEngineDelegate;

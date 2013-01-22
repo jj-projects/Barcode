@@ -10,5 +10,23 @@
 
 
 @implementation UPCEngine
+#pragma mark Private
+
+- (void)encode:(NSDictionary *)dictionary {
+	
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+	[self performSelectorOnMainThread:@selector(didNotEncode:) withObject:dictionary waitUntilDone:NO];
+	
+	[pool release];
+	
+}
+
+- (void)decode:(NSDictionary *)dictionary {
+	NSLog(@"decode:");
+   
+   
+}
+
 
 @end

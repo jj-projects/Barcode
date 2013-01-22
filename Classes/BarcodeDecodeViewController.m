@@ -41,6 +41,9 @@
 			case BarcodeTypeQRCode:
 				self.title = NSLocalizedString(@"QR Code", nil);
 				break;
+			case BarcodeTypeUPC:
+				self.title = NSLocalizedString(@"UPC Code", nil);
+				break;
 		}
 		
 		self.barcodeEngine = [BarcodeEngine barcodeEngineWithBarcodeType:type];

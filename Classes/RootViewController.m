@@ -63,6 +63,9 @@
 				case 1:
 					viewController = [[BarcodeDecodeViewController alloc] initWithBarcodeType:BarcodeTypeQRCode];
 					break;
+				case 2:
+					viewController = [[BarcodeDecodeViewController alloc] initWithBarcodeType:BarcodeTypeUPC];
+					break;
 			}
 			break;
 	}
@@ -108,7 +111,19 @@
 					imageView.frame = frame;
 					[tableViewCell.contentView addSubview:imageView];
 					[imageView release];
-//					tableViewCell.text = NSLocalizedString(@"QR Code", nil);
+               //					tableViewCell.text = NSLocalizedString(@"QR Code", nil);
+					tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+					break;
+				}
+				case 2:
+				{
+					UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UPCCode.png"]];
+					CGRect frame = imageView.frame;
+					frame.origin = CGPointMake(60.0f, 10.0f);
+					imageView.frame = frame;
+					[tableViewCell.contentView addSubview:imageView];
+					[imageView release];
+               //					tableViewCell.text = NSLocalizedString(@"UPC Code", nil);
 					tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 					break;
 				}
@@ -126,7 +141,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	switch(section) {
 		case 0:
-			return 2;
+			return 3;
 		default:
 			return 0;
 	}

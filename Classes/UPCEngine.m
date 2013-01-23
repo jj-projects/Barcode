@@ -58,13 +58,15 @@
    ZBarImageScanner *scanner = [[[ZBarImageScanner alloc] init] autorelease];
    assert(NULL != scanner);
    
-   [scanner scanImage:zImage];
-   ZBarSymbolSet *result = [scanner results];
+   NSInteger iSymbols = [scanner scanImage:zImage];
    
-   NSString *message = [[NSString alloc] initWithData:[result data] encoding:NSUTF8StringEncoding];
-   assert(NULL != message);
-   [messages addObject:message];
-
+   if (0 < iSymbols ) {
+      ZBarSymbolSet *result = [scanner results];
+   
+      NSString *message = [[NSString alloc] initWithData:[result data] encoding:NSUTF8StringEncoding];
+      assert(NULL != message);
+      [messages addObject:message];
+   }
    if([messages count] > 0) {
 		if(!self.cancel)
 			[self performSelectorOnMainThread:@selector(didDecode:) withObject:[NSDictionary dictionaryWithObjectsAndKeys:image, @"image", [messages objectAtIndex:0], @"string", nil] waitUntilDone:NO];

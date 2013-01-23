@@ -1160,7 +1160,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos6.0;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -1195,7 +1195,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos6.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1211,7 +1211,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos6.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

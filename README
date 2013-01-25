@@ -4,3 +4,5 @@ The application version of Stefan has not been updated for a while and is still 
 
 This fork links against iOS 6 and zxing compilation problems are fixed, 
 XCODE 3.2 is required to open the projects
+
+Additionally the ZDBar Library is used to support scanning of UPC barcodes.
